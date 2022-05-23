@@ -4,12 +4,14 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import javax.validation.constraints.PositiveOrZero;
 import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
 @NoArgsConstructor
 public class Track {
     @Id
@@ -18,6 +20,7 @@ public class Track {
 
     private String title;
 
+    @PositiveOrZero(message="stream must have a positive value")
     private Long stream;
 
     @ManyToOne

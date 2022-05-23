@@ -14,6 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 @ToString
+@AllArgsConstructor
 @NoArgsConstructor
 public class Artist {
     @Id
@@ -22,6 +23,7 @@ public class Artist {
     private String name;
 
     @OneToMany(mappedBy="author")
+    @ToString.Exclude
     private Set<Track> tracks;
 
     @Transient
