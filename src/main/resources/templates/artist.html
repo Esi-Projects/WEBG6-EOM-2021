@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/index}">
+<head>
+    <meta charset="UTF-8">
+    <title>Artistes</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <!-- Artist List -->
+    <h1 class="title">Liste des artistes</h1>
+
+    <div th:with="condition = ${#lists.isEmpty(artists) }">
+        <span th:if="${condition}">Aucun artistes</span>
+        <span th:unless="${condition}">
+        <table>
+            <tr>
+                <th>Nom</th>
+                <th>Nombre de musiques</th>
+            </tr>
+            <tr th:each="artist : ${artists}">
+                <td th:text="${artist.name}">Name</td>
+                <td th:text="${artist.nbOfTracks}">Number of tracks</td>
+            </tr>
+        </table>
+    </span>
+    </div>
+
+</main>
+</body>
+</html>
