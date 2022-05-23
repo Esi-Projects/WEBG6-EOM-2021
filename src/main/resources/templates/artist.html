@@ -15,17 +15,17 @@
     <div th:with="condition = ${#lists.isEmpty(artists) }">
         <span th:if="${condition}">Aucun artistes</span>
         <span th:unless="${condition}">
-        <table>
-            <tr>
-                <th>Nom</th>
-                <th>Nombre de musiques</th>
-            </tr>
-            <tr th:each="artist : ${artists}">
-                <td th:text="${artist.name}">Name</td>
-                <td th:text="${artist.nbOfTracks}">Number of tracks</td>
-            </tr>
-        </table>
-    </span>
+            <table>
+                <tr>
+                    <th>Nom</th>
+                    <th>Nombre de musiques</th>
+                </tr>
+                <tr th:each="artist : ${artists}">
+                    <td><a th:href="@{/artist(login=${artist.login})}" th:text="${artist.name}">Name</a></td>
+                    <td th:text="${artist.nbOfTracks}">Number of tracks</td>
+                </tr>
+            </table>
+        </span>
     </div>
 
 </main>

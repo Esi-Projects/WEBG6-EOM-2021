@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/index}">
+<head>
+    <meta charset="UTF-8">
+    <title>Artist Detail</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <div th:with="condition = ${artist == null}">
+        <span th:if="${condition}">Artiste non trouvé</span>
+
+        <span th:unless="${condition}">
+
+            <!-- Artist Detail -->
+            <img th:src="@{${'/images/' + artist.login + '.jpg'}}" alt="author_img" width="300" height="200"/>
+
+            <h1 class="title">
+                <span th:text="${artist.name}">Nom</span>
+            </h1>
+
+            <!-- Track List -->
+            <h2 class="subtitle">Liste des sons de l'artiste</h2>
+            <div th:with="condition = ${#lists.isEmpty(artist.tracks) }">
+                <span th:if="${condition}">Aucune chanson disponible</span>
+                <span th:unless="${condition}">
+                    <table>
+                        <tr>
+                            <th>Titre</th>
+                            <th>Stream</th>
+                        </tr>
+                        <tr th:each="track : ${artist.tracks}">
+                            <td th:text="${track.title}">Titre</td>
+                            <td th:text="${track.stream}">Stream</td>
+                        </tr>
+                    </table>
+                </span>
+            </div>
+        </span>
+    </div>
+</main>
+</body>
+</html>

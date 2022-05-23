@@ -18,4 +18,8 @@ public class ArtistService {
     public List<Artist> getArtists() {
         return (List<Artist>) artistRepository.findAll();
     }
+
+    public Artist getArtistByLogin(String login) {
+        return artistRepository.findById(login).orElse(null);
+    }
 }
