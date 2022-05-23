@@ -1,5 +1,6 @@
 package esi.webg6.g54895.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import org.hibernate.Hibernate;
 
@@ -24,6 +25,7 @@ public class Artist {
 
     @OneToMany(mappedBy="author")
     @ToString.Exclude
+    @JsonBackReference
     private Set<Track> tracks;
 
     @Transient

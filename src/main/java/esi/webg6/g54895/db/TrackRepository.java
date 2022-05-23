@@ -7,6 +7,8 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Repository
 public interface TrackRepository extends CrudRepository<Track, Long> {
 
@@ -14,4 +16,8 @@ public interface TrackRepository extends CrudRepository<Track, Long> {
     @Modifying
     @Query("UPDATE Track t SET t.stream = t.stream + :stream WHERE t.id = :id")
     void updateTrackStream(Long id, Long stream);
+
+    @Query("select t from Track t where t.stream >= :stream")
+    List<Track> findByStreamGreaterThanEqual(Long stream);
+
 }

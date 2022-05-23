@@ -4,6 +4,7 @@ import esi.webg6.g54895.business.ArtistService;
 import esi.webg6.g54895.business.TrackService;
 import esi.webg6.g54895.model.Artist;
 import esi.webg6.g54895.model.Track;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,13 +15,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.validation.Valid;
 
 @Controller
+@RequiredArgsConstructor
 public class TrackController {
 
     @Autowired
-    TrackService trackService;
+    private final TrackService trackService;
 
     @Autowired
-    ArtistService artistService;
+    private final ArtistService artistService;
 
     @PostMapping("/artist")
     public String updateTrackStream(@RequestParam(name = "login") String login,

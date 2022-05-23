@@ -1,5 +1,6 @@
 package esi.webg6.g54895.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import org.hibernate.Hibernate;
 
@@ -25,6 +26,7 @@ public class Track {
 
     @ManyToOne
     @JoinColumn(name = "author_login")
+    @JsonManagedReference
     private Artist author;
 
     @Override
