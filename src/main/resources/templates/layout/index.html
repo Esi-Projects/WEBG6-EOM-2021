@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+    <link rel="stylesheet" th:href="@{/style/index.css}"/>
+    <!-- Font Awesome-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+          integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- Font Awesome-->
+</head>
+<body>
+<header>
+    <div id="banner">
+        <div id="banner-top">
+            <span id="banner-main-title">Programme annuel des étudiants</span>
+            <img id="banner-img" th:src="@{/images/logo-esi.png}" width=80px>
+        </div>
+        <div id="banner-sub-title">HE2B - ESI / WEBG6</div>
+    </div>
+
+    <nav id="navbar">
+        <ul>
+            <li><a th:href="@{/}"><i class="fas fa-home"></i></a></li>
+            <li><a th:href="@{/artist}">Artistes</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main id="content" layout:fragment="content">Content</main>
+
+<footer>Ayoub Lahyaoui - 54895 | 2021-2022</footer>
+</body>
+</html>
