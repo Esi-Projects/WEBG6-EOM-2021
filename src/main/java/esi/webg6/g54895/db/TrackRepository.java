@@ -15,9 +15,9 @@ public interface TrackRepository extends CrudRepository<Track, Long> {
     @Transactional
     @Modifying
     @Query("UPDATE Track t SET t.stream = t.stream + :stream WHERE t.id = :id")
-    void updateTrackStream(Long id, Long stream);
+    void updateTrackStream(long id, long stream);
 
     @Query("select t from Track t where t.stream >= :stream")
-    List<Track> findByStreamGreaterThanEqual(Long stream);
+    List<Track> findByStreamGreaterThanEqual(long stream);
 
 }

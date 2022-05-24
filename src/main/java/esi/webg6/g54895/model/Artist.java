@@ -35,6 +35,11 @@ public class Artist {
         return tracks.size();
     }
 
+    public Artist(String login, String name) {
+        this.login = login;
+        this.name = name;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

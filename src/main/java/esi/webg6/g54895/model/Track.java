@@ -17,12 +17,12 @@ import java.util.Objects;
 public class Track {
     @Id
     @GeneratedValue
-    private Long id;
+    private long id;
 
     private String title;
 
     @PositiveOrZero(message="stream must have a positive value")
-    private Long stream;
+    private long stream;
 
     @ManyToOne
     @JoinColumn(name = "author_login")
@@ -34,7 +34,7 @@ public class Track {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
         Track track = (Track) o;
-        return id != null && Objects.equals(id, track.id);
+        return Objects.equals(id, track.id);
     }
 
     @Override
